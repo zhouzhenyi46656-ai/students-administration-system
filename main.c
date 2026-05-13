@@ -2,7 +2,7 @@
 #include "declaration.h"
 
 int main()
-{
+{//"test"
     print_order();
 
     int n;
@@ -19,3 +19,4 @@ int main()
     }
 
 }
+
