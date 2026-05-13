@@ -1,0 +1,13 @@
+*.exe
+*.o
+*.obj
+*.layout
+*.depend
+cbTemp/
+bin/
+obj/
+Debug/
+Release/
+Thums.db 
+desktop.ini
+.DS_Store
