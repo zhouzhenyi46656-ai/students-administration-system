@@ -2,7 +2,7 @@
 #include "declaration.h"
 
 int main()
-{//sb
+{//
     print_order();
 
     int n;
