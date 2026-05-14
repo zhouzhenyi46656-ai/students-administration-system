@@ -8,25 +8,33 @@ void new_file()
 {
     int cnt;
     //输入文件名
-    char str[40]={0},*fname=str;
+    char str[257]={0},*fname=str;
     do{
-        printf("%s","请输入文件名：");
-        scanf("%s",fname);
-        if(strlen(fname)>255){
-            printf("文件名太长了！");
-            continue;
+        while(1){
+            printf("%s","请输入文件名：");
+            fgets(fname,256,stdin);
+            if(strchr(fname,'\n')==0){
+                printf("文件名太长了！\n");
+                while(getchar()!='\n');
+                continue;
+            }
+            else {
+                fname[strlen(fname)-1]='\0';
+                break;
+            }
         }
         strcat(fname,".txt");
 
     //检验文件是否存在
         cnt=0;
-        while(existed_files[cnt++]){
+        while(existed_files[cnt++][0]!='\0'){
             if(!strcmp(existed_files[cnt-1],fname)){
                 printf("该文件已存在，是否覆盖：");
 
-                char ans[2]={0};
+                char ans[3]={0};
                 scanf("%s",ans);
-                if(strcmp(ans,"是")){
+                getchar();
+                if(!strcmp(ans,"是")){
                     cnt=-1;
                     break;
                 }
@@ -41,7 +49,6 @@ void new_file()
 
     //新建文件
     FILE *fp;
-    strcat(fname,".txt");
     fp=fopen(fname,"w");
     fclose(fp);
     printf("文件创建成功\n");
