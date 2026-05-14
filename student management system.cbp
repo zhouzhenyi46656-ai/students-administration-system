@@ -44,7 +44,7 @@
 		<Unit filename="吴墨晗/fun_3.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="周真意/fun_4.c">
+		<Unit filename="周真意/1.new_file.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="周真意/fun_5.c">
@@ -54,6 +54,9 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="周真意/print_order.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="周真意/search_files.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="钟运圣/fun_7.c">
