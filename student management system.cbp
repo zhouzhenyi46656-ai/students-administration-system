@@ -44,13 +44,13 @@
 		<Unit filename="吴墨晗/fun_3.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="周真意/1.new_file.c">
+		<Unit filename="周真意/1.create_new_file.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="周真意/fun_5.c">
+		<Unit filename="周真意/2.display_student_record.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="周真意/fun_6.c">
+		<Unit filename="周真意/3.add_sudent_record.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="周真意/print_order.c">
@@ -59,13 +59,13 @@
 		<Unit filename="周真意/search_files.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="钟运圣/fun_5.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="钟运圣/fun_7.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="钟运圣/fun_8.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="钟运圣/fun_9.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>
