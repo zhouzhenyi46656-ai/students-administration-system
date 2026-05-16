@@ -5,15 +5,39 @@
 
 int check_int(char* p);
 int trans_int(char* p);
+extern existed_files[100][260];
 
 void add_student_record()
 {
+    //打印文件列表
+    if(!existed_files[0][0]){
+        printf("当前暂无文件，请新建文件,按b返回:");
+        return;
+    }
+    else {
+        for(int i=0;!existed_files[i][0];i++){
+            int len;
+            char* p=strstr(existed_files[i],".txt");
+            len=p-existed_files[i];
+            printf("%.*s\n",len,existed_files[i]);
+        }
+    }
+
+
+    FILE* fp;
     char str[255]={0};
-    printf("请选择添加记录的文件:");
-    scanf("%s",str);
-    strcat(str,".txt");
-    while(){
-       strcmp(str)
+    //检查文件是否存在
+    while(1){
+        printf("请选择添加记录的文件:");
+        scanf("%s",str);
+        if(!strcmp(str,"b"))return;
+        strcat(str,".txt");
+        fp=fopen(str,"r");
+        if(!fp)printf("文件不存在!请检查输入或新创建文件,按b返回:");
+        else {
+            fclose(fp);
+            break;
+        }
     }
 
 
@@ -113,12 +137,13 @@ void add_student_record()
 
 
         //写入文件
+        fp=fopen(str,"a");
 
 
 
 
 
-    printf("学生记录添加成功!继续添加，或按b返回");
+        printf("学生记录添加成功!继续添加，或按b返回");
     }while(1);
 }
 
