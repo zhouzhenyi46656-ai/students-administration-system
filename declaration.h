@@ -14,7 +14,7 @@ void fun_8();
 typedef struct student_information{
     int sequence;
     char name[20];
-    char gender[3];
+    char gender[4];
     char student_number[20];
     int Chinese;
     int Math;

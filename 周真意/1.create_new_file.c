@@ -50,7 +50,7 @@ void create_new_file()
     //新建文件
     FILE *fp;
     fp=fopen(fname,"w");
-    fprintf(fp,"姓名      序号      学号      性别      语文      数学      英语      物理      化学      生物      历史      政治      地理      平均");
+    fprintf(fp,"姓名      序号      学号      性别      语文      数学      英语      物理      化学      生物      历史      政治      地理      平均\n");
     fclose(fp);
     printf("文件创建成功\n");
 }
