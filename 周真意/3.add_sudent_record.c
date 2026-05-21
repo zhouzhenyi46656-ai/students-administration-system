@@ -2,7 +2,8 @@
 #include "../declaration.h"
 #include <string.h>
 #include <stdlib.h>
-#define INTV 10
+#include <conio.h>
+#define INTV 13
 
 int check_int(char* p);
 int trans_int(char* p);
@@ -31,16 +32,17 @@ void add_student_record()
     //检查文件是否存在
     while(1){
         printf("请选择添加记录的文件:");
-        scanf("%s",str);
+        fgets(str,255,stdin);
         if(!strcmp(str,"b"))return;
+        str[strlen(str)-1]='\0';
         strcat(str,".txt");
         fp=fopen(str,"r");
-        if(!fp)printf("文件不存在!请检查输入或新创建文件,按b返回:");
+        if(!fp)printf("文件不存在或已打开!请检查输入，关闭或新创建文件,按b返回\n\n");
         else {
 
             //读取当前记录序号
             char char_seq[10]={0};
-            fseek(fp,-13*INTV+1,SEEK_END);
+            fseek(fp,-13*INTV-2,SEEK_END);
             fscanf(fp,"%s",char_seq);
             if(atoi(char_seq))stu.sequence=atoi(char_seq)+1;
             else stu.sequence=1;
@@ -58,22 +60,21 @@ void add_student_record()
         //输入姓名
         do{
             printf("请输入学生姓名:");
-            while(getchar()!='\n');
             fgets(stu.name,19,stdin);
             //判断用户是否返回
-            if(!strcmp(stu.name,"b"))return;
+            if(!strcmp(stu.name,"b\n"))return;
 
             if(!strchr(stu.name,'\n')||stu.name[0]=='\n'){
                 printf("输入格式错误！\n");
+                while(kbhit()){
+                    getchar()!='\n';
+                }
                 status_code=0;
             }
             else status_code=1;
         }while(!status_code);
         p=stu.name;
-        while(1){
-            if(*p!='\n')p++;
-            else {*p='\0';break;}
-        }
+        p[strlen(p)-1]='\0';
 
         //输入学号
         do{
@@ -81,16 +82,15 @@ void add_student_record()
             fgets(stu.student_number,19,stdin);
             if(!strchr(stu.student_number,'\n')||stu.student_number[0]=='\n'){
                 printf("输入格式错误！\n");
-                while(getchar()!='\n');
+                while(kbhit()){
+                    getchar()!='\n';
+                }
                 status_code=0;
             }
             else status_code=1;
         }while(!status_code);
         p=stu.student_number;
-        while(1){
-            if(*p!='\n')p++;
-            else {*p='\0';break;}
-        }
+        p[strlen(p)-1]='\0';
 
         //输入性别
         do{
@@ -98,16 +98,15 @@ void add_student_record()
             fgets(stu.gender,4,stdin);
             if(!strchr(stu.gender,'\n')||stu.gender[0]=='\n'){
                 printf("输入格式错误！\n");
-                while(getchar()!='\n');
+                while(kbhit()){
+                    getchar()!='\n';
+                }
                 status_code=0;
             }
             else status_code=1;
         }while(!status_code);
         p=stu.gender;
-        while(1){
-            if(*p!='\n')p++;
-            else {*p='\0';break;}
-        }
+        p[strlen(p)-1]='\0';
 
         //输入成绩
         while(1){
@@ -115,18 +114,18 @@ void add_student_record()
             do{
                 printf("请输入学生成绩（按照语文、数学、英语、物化生、政史地顺序，中间用空格隔开，不存在的填\"-1\"）:\n");
                 fgets(score,40,stdin);
-                if(!strchr(score,'\n')||!check_int(str)){
+                if(!strchr(score,'\n')||!check_int(score)){
                     printf("输入格式错误！\n");
-                    while(getchar()!='\n');
+                    while(kbhit()){
+                        getchar()!='\n';
+                    }
                     status_code=0;
                 }
                 else status_code=1;
             }while(!status_code);
             p=score;
-            while(1){
-                if(*p!='\n')p++;
-                else {*p='\0';break;}
-            }
+            p[strlen(p)-1]='\0';
+
             //分割获取成绩
             int* q=&stu.Chinese,status=1;
             p=strtok(score," ");
@@ -146,6 +145,10 @@ void add_student_record()
 
         //写入文件
         fp=fopen(str,"a");
+        if(!fp){
+            printf("文件已打开，请关闭!\n\n");
+            continue;
+        }
         fprintf(fp,"%-*s",INTV,stu.name);
         fprintf(fp,"%-*d",INTV,stu.sequence++);
         fprintf(fp,"%-*s",INTV,stu.student_number);
@@ -157,7 +160,7 @@ void add_student_record()
         fclose(fp);
 
 
-        printf("学生记录添加成功!继续添加，或按b返回");
+        printf("学生记录添加成功!继续添加，或按b返回\n");
     }
 }
 
@@ -166,7 +169,7 @@ int check_int(char* p)
     char *end;
     long n=strtol(p,&end,10);
     if(end==p)return 0;
-    else return n;
+    else return n|1;
 }
 
 int trans_int(char* p)

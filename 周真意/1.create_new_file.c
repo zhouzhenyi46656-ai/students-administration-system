@@ -14,9 +14,12 @@ void create_new_file()
             printf("%s","请输入文件名：");
             fgets(fname,256,stdin);
             if(strchr(fname,'\n')==0){
-                printf("文件名太长了！\n");
+                printf("文件名太长了！\n\n");
                 while(getchar()!='\n');
                 continue;
+            }
+            else if(!strcmp(fname,"\n")){
+                printf("文件名不能为空!\n\n");
             }
             else {
                 fname[strlen(fname)-1]='\0';
@@ -29,7 +32,7 @@ void create_new_file()
         cnt=0;
         while(existed_files[cnt++][0]!='\0'){
             if(!strcmp(existed_files[cnt-1],fname)){
-                printf("该文件已存在，是否覆盖：");
+                printf("该文件已存在，是否覆盖（是/否）：");
 
                 char ans[3]={0};
                 scanf("%s",ans);
@@ -50,7 +53,7 @@ void create_new_file()
     //新建文件
     FILE *fp;
     fp=fopen(fname,"w");
-    fprintf(fp,"姓名      序号      学号      性别      语文      数学      英语      物理      化学      生物      历史      政治      地理      平均\n");
+    fprintf(fp,"姓名         序号         学号         性别         语文         数学         英语         物理         化学         生物         历史         政治         地理         平均\n");
     fclose(fp);
     printf("文件创建成功\n");
 }
