@@ -5,8 +5,8 @@ void add_student_record();
 void print_order();
 void search_files();
 
-void fun_1();
-void fun_3();
+void ranking();
+void average();
 void fun_5();
 void fun_7();
 void fun_8();

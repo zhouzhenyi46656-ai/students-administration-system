@@ -35,13 +35,10 @@
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="吴墨晗/fun_1.c">
+		<Unit filename="吴墨晗/average.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="吴墨晗/fun_2.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="吴墨晗/fun_3.c">
+		<Unit filename="吴墨晗/ranking.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="周真意/1.create_new_file.c">
