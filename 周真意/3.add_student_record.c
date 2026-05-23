@@ -54,59 +54,26 @@ void add_student_record()
 
     while(1){
         //获取学生信息
-        int status_code=0;
-        char* p=0;
-
         //输入姓名
         do{
             printf("请输入学生姓名:");
             fgets(stu.name,19,stdin);
+
             //判断用户是否返回
             if(!strcmp(stu.name,"b\n"))return;
-
-            if(!strchr(stu.name,'\n')||stu.name[0]=='\n'){
-                printf("输入格式错误！\n");
-                while(kbhit()){
-                    getchar()!='\n';
-                }
-                status_code=0;
-            }
-            else status_code=1;
-        }while(!status_code);
-        p=stu.name;
-        p[strlen(p)-1]='\0';
+        }while(!check_input(stu.name));
 
         //输入学号
         do{
             printf("请输入学生学号:");
             fgets(stu.student_number,19,stdin);
-            if(!strchr(stu.student_number,'\n')||stu.student_number[0]=='\n'){
-                printf("输入格式错误！\n");
-                while(kbhit()){
-                    getchar()!='\n';
-                }
-                status_code=0;
-            }
-            else status_code=1;
-        }while(!status_code);
-        p=stu.student_number;
-        p[strlen(p)-1]='\0';
+        }while(!check_input(stu.student_number));
 
         //输入性别
         do{
             printf("请输入学生性别:");
             fgets(stu.gender,4,stdin);
-            if(!strchr(stu.gender,'\n')||stu.gender[0]=='\n'){
-                printf("输入格式错误！\n");
-                while(kbhit()){
-                    getchar()!='\n';
-                }
-                status_code=0;
-            }
-            else status_code=1;
-        }while(!status_code);
-        p=stu.gender;
-        p[strlen(p)-1]='\0';
+        }while(!check_input(stu.gender));
 
         //输入成绩
         while(1){
@@ -114,21 +81,11 @@ void add_student_record()
             do{
                 printf("请输入学生成绩（按照语文、数学、英语、物化生、政史地顺序，中间用空格隔开，不存在的填\"-1\"）:\n");
                 fgets(score,40,stdin);
-                if(!strchr(score,'\n')||!check_int(score)){
-                    printf("输入格式错误！\n");
-                    while(kbhit()){
-                        getchar()!='\n';
-                    }
-                    status_code=0;
-                }
-                else status_code=1;
-            }while(!status_code);
-            p=score;
-            p[strlen(p)-1]='\0';
+            }while(!check_input(score));
 
             //分割获取成绩
-            int* q=&stu.Chinese,status=1;
-            p=strtok(score," ");
+            int *q=&stu.Chinese,status=1;
+            char *p=strtok(score," ");
             *q++=trans_int(p);
             while(p){
                 p=strtok(NULL," ");
