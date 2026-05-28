@@ -2,10 +2,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include "../declaration.h"
+#define SEEK_SET 0
+#define SEEK_CUR 1
+#define SEEK_END 2
+#define INTV 13
 
-int check_int(char* p);
-int trans_int(char* p);
-
+extern char existed_files[100][260];
 
 void ranking()
 {
@@ -33,8 +35,8 @@ void ranking()
         fp=fopen(str,"r");
         if(!fp)
         {
-         printf("文件不存在!请检查输入或新创建文件,按b返回:");
-         if(getchar()=='b'))return;
+         printf("文件不存在!请检查输入或新创建文件,按b返回:\n");
+         while(1){if(getchar()=='b')return;}
         }
         else {
             fclose(fp);
@@ -43,12 +45,22 @@ void ranking()
     }
 
     stu_info stu_arr[100];
-    int count=0;int pcs;
+
+    int count=0;int pcs=0;
+
     fp=fopen(str,"r");
-    while((pcs=fscanf(fp,"%s %s %s %d %d %d %d %d %d %d %d %d",
-                 &stu_arr[count].name,
-                 &stu_arr[count].gender,
-                 &stu_arr[count].student_number,
+
+    char char_seq[10]={0};
+    fseek(fp,-13*INTV-2,SEEK_END);
+    fscanf(fp,"%s",char_seq);
+    int num=0;
+    num=atoi(char_seq);
+
+    int test=fseek(fp,14*13+1,SEEK_SET);
+    while((pcs=fscanf(fp,"%s",stu_arr[count].name)))
+                 /*&stu_arr[count].sequence,
+                 stu_arr[count].student_number,
+                 stu_arr[count].gender,
                  &stu_arr[count].Chinese,
                  &stu_arr[count].Math,
                  &stu_arr[count].English,
@@ -57,22 +69,21 @@ void ranking()
                  &stu_arr[count].Biology,
                  &stu_arr[count].Politics,
                  &stu_arr[count].History,
-                 &stu_arr[count].Geometry))==12)
+                 &stu_arr[count].Geometry*/
     {
-        count++;
+        count++;//printf("%d",pcs);
     }
     fclose(fp);
 
     if(count==0)
     {
         printf("文件中暂无学生数据，无法排序！\n");
-        printf("按b返回：");
-        if(getchar()=='b'))return;
+        return;
     }
-    else if(pcs!=0||pcs!=12)
+    else if(pcs!=0||pcs!=13)
     {
         printf("输入学生信息不完整！请检查后重试...\n");
-        if(getchar()=='b'))return;
+        if(getchar()=='b')return;
     }
     else
     {
@@ -103,10 +114,11 @@ void ranking()
         printf("10.全部科目\n");
         printf("请输入你的选择，并按enter确认：\n");
         scanf("%d",&subject);
+        int vrf=0;
         for(int ii=1;ii<11;ii++)
         {
-            int vrf=0;
-            if(subject==ii){vfy=1;break;}
+
+            if(subject==ii){vrf=1;break;}
         }
         if(!vrf){printf("无效选项！");return;}
     }
@@ -116,20 +128,5 @@ void ranking()
 }
 
 
-int check_int(char* p)
-{
-    char *end;
-    long n=strtol(p,&end,10);
-    if(end==p)return 0;
-    else return n;
-}
-
-int trans_int(char* p)
-{
-    char *end;
-    long n=strtol(p,&end,10);
-    if(end==p)return -2;
-    else return (int)n;
-}
 
 
