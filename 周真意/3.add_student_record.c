@@ -116,7 +116,6 @@ void add_student_record()
         fprintf(fp,"%-*s\n",INTV,"未处理");
         fclose(fp);
 
-
         printf("学生记录添加成功!继续添加，或按b返回\n");
     }
 }

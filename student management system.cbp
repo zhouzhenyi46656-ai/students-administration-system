@@ -50,7 +50,10 @@
 		<Unit filename="周真意/2.display_student_record.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="周真意/3.add_sudent_record.c">
+		<Unit filename="周真意/3.add_student_record.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="周真意/check_input.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="周真意/print_order.c">
