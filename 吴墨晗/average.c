@@ -1,7 +1,6 @@
 #include <stdio.h>
-#include "../declaration.h"
 
-void fun_1()
+void average()
 {
     printf("Hello World!");
 }

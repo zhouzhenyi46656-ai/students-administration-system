@@ -14,8 +14,8 @@ int main()
         switch(n){
             case 1:{create_new_file();break;}
             case 2:{display_student_record();break;}
-            case 3:{fun_3();break;}
-            case 4:{fun_1();break;}
+            case 3:{ranking();break;}
+            case 4:{average();break;}
             case 5:{fun_5();break;}
             case 6:{add_student_record();break;}
             case 7:{fun_7();break;}
