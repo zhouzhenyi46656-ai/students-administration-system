@@ -4,7 +4,7 @@
 
 extern char existed_files[100][260];
 
-void display_student_record(char* sp)
+void display_student_record(char* sp/*传入NULL是输入文件名，否则直接传入文件名*/)
 {
     //输入文件名
     char str[260]={0};

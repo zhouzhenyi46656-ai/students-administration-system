@@ -1,6 +1,6 @@
 //函数声明
 void create_new_file();
-void display_student_record(char* sp);
+void display_student_record(char* sp/*传入NULL是输入文件名，否则直接传入文件名*/);
 void add_student_record();
 void print_order();
 void search_files();
