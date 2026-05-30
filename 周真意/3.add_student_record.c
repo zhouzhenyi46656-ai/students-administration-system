@@ -2,7 +2,6 @@
 #include "../declaration.h"
 #include <string.h>
 #include <stdlib.h>
-#include <conio.h>
 #define INTV 13
 
 int check_int(char* p);
@@ -12,19 +11,7 @@ extern char existed_files[100][260];
 void add_student_record()
 {
     //打印文件列表
-    if(!existed_files[0][0]){
-        printf("当前暂无文件，请新建文件!");
-        return;
-    }
-    else {
-        for(int i=0;existed_files[i][0];i++){
-            int len;
-            char* p=strstr(existed_files[i],".txt");
-            len=p-existed_files[i];
-            printf("%.*s\n",len,existed_files[i]);
-        }
-    }
-
+    print_file_list();
 
     stu_info stu={.average=-2};
     FILE* fp;
@@ -116,7 +103,9 @@ void add_student_record()
         fprintf(fp,"%-*s\n",INTV,"未处理");
         fclose(fp);
 
-        printf("学生记录添加成功!继续添加，或按b返回\n");
+        printf("学生记录添加成功!\n");
+        display_student_record(str);
+        printf("\n继续添加,或按b返回,");
     }
 }
 

@@ -53,6 +53,9 @@
 		<Unit filename="周真意/check_input.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="周真意/print_file_list;.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="周真意/print_order.c">
 			<Option compilerVar="CC" />
 		</Unit>

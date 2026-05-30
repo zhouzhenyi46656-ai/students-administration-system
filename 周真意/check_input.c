@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include "../declaration.h"
 
 int check_input(char* p)
 {

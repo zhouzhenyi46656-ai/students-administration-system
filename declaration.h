@@ -1,10 +1,11 @@
 //函数声明
 void create_new_file();
-void display_student_record();
+void display_student_record(char* sp);
 void add_student_record();
 void print_order();
 void search_files();
 int check_input(char* p);
+void print_file_list();
 
 void ranking();
 void average();

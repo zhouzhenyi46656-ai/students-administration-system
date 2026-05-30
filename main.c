@@ -13,7 +13,7 @@ int main()
 
         switch(n){
             case 1:{create_new_file();break;}
-            case 2:{display_student_record();break;}
+            case 2:{display_student_record(NULL);break;}
             case 3:{ranking();break;}
             case 4:{average();break;}
             case 5:{fun_5();break;}
