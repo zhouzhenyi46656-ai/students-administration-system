@@ -9,9 +9,9 @@ void print_file_list();
 
 void ranking();
 void average();
-void fun_5();
-void fun_7();
-void fun_8();
+void search_();
+void filter();
+void exit();
 
 //存储结构体声明
 typedef struct student_information{

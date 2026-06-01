@@ -16,10 +16,10 @@ int main()
             case 2:{display_student_record(NULL);break;}
             case 3:{ranking();break;}
             case 4:{average();break;}
-            case 5:{fun_5();break;}
+            case 5:{filter();break;}
             case 6:{add_student_record();break;}
-            case 7:{fun_7();break;}
-            case 8:{fun_8();break;}
+            case 7:{search_();break;}
+            case 8:{exit();break;}
             default:{printf("无效选项，请重新输入\n\n");continue;}
         }
         printf("\n");

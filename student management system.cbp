@@ -62,13 +62,13 @@
 		<Unit filename="周真意/search_files.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="钟运圣/fun_5.c">
+		<Unit filename="钟运圣/exit.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="钟运圣/fun_7.c">
+		<Unit filename="钟运圣/filter.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="钟运圣/fun_8.c">
+		<Unit filename="钟运圣/search_.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>
